@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import SignUp from './pages/Signup';
 import { useState,useContext, createContext } from 'react';
+import Tasks from './pages/Tasks';
 
 function App() {
 
@@ -23,9 +24,6 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
-
-          
-
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

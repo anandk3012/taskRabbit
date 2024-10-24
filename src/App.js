@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home'
+import Login from './pages/Login'
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import SignUp from './pages/Signup';
+import { useState,useContext, createContext } from 'react';
 
 function App() {
+
+  const UserContext = createContext();
+  const [login,setLogin] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    // Manage user login using usecontext hook for global management of user state
+    <UserContext.Provider value={login}  >
+
+      {/*  Browser router for routing between pages  */}
+      <BrowserRouter className="App">
+        <Navbar />
+        <Routes> {/* App routes */}
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

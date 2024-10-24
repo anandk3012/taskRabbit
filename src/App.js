@@ -9,7 +9,7 @@ import { useState,useContext, createContext } from 'react';
 function App() {
 
   const UserContext = createContext();
-  const [login,setLogin] = useState(false);
+  const [login,setLogin] = useState(false); 
 
   return (
 
@@ -23,6 +23,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
+
+          
+
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
